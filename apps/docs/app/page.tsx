@@ -1,5 +1,6 @@
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui"
 import { ArrowRightCircle } from "lucide-react"
+import Image from "next/image"
 
 const LINKS = [
 	{
@@ -30,6 +31,10 @@ const LINKS = [
 export default function Page(): JSX.Element {
 	return (
 		<main className={'grid grid-cols-2 gap-4 place-content-center min-h-screen p-8'}>
+			<div className="col-span-2">
+				<Image src="/logo.svg" width={160} height={32} alt="Your app logo" />
+			</div>
+
 			{LINKS.map((link, i) => (
 				<Card key={i}>
 					<CardHeader>
