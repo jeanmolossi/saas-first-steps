@@ -4,3 +4,5 @@ import './styles.css';
 export * from './button';
 export * from './card';
 
+// providers
+export * from './theme-provider';

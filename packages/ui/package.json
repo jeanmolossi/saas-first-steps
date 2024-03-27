@@ -1,11 +1,13 @@
 {
 	"name": "@repo/ui",
-  "description": "",
+	"description": "",
 	"version": "0.0.1",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
-  "files": ["dist/**"],
+	"main": "./dist/index.mjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
+	"files": [
+		"dist/**"
+	],
 	"scripts": {
 		"build": "tsup",
 		"lint": "eslint src/",
@@ -36,6 +38,7 @@
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.0",
 		"lucide-react": "^0.363.0",
+		"next-themes": "^0.3.0",
 		"tailwind-merge": "^2.2.2",
 		"tailwindcss-animate": "^1.0.7"
 	}
