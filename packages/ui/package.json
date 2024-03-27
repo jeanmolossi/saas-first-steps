@@ -1,6 +1,6 @@
 {
 	"name": "@repo/ui",
-	"description": "",
+	"description": "UI components for Your App",
 	"version": "0.0.1",
 	"main": "./dist/index.mjs",
 	"module": "./dist/index.mjs",
@@ -41,5 +41,22 @@
 		"next-themes": "^0.3.0",
 		"tailwind-merge": "^2.2.2",
 		"tailwindcss-animate": "^1.0.7"
-	}
+	},
+  "author": "Jean Molossi <jean.carlosmolossi@gmail.com>",
+  "homepage": "https://jeanmolossi.com.br",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanmolossi/saas-first-steps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeanmolossi/saas-first-steps/issues"
+  },
+  "keywords": [
+    "saas",
+    "boilerplate",
+    "ui"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

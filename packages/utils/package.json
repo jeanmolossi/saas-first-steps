@@ -29,7 +29,25 @@
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   },
-  "keywords": [],
-  "author": "",
+
+  "author": "Jean Molossi <jean.carlosmolossi@gmail.com>",
+  "homepage": "https://jeanmolossi.com.br",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeanmolossi/saas-first-steps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeanmolossi/saas-first-steps/issues"
+  },
+  "keywords": [
+    "saas",
+    "boilerplate",
+    "utils",
+    "utility",
+    "functions"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "ISC"
 }
