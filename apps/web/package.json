@@ -10,10 +10,16 @@
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.35.2",
     "lucide-react": "^0.363.0",
     "next": "^14.1.1",
+    "postgres": "^3.4.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "swr": "^2.2.5",
+    "zod": "^3.23.8",
+    "zod-error": "^1.5.0"
   },
   "devDependencies": {
     "@repo/ts-config": "workspace:*",
@@ -21,6 +27,7 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.19",
+    "drizzle-kit": "^0.26.2",
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",
     "tailwindcss": "^3.4.1",
