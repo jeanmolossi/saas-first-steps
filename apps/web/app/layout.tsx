@@ -1,10 +1,17 @@
-import '@/styles/globals.css';
-import { ThemeProvider } from '@repo/ui';
-import '@repo/ui/dist/index.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import '@/styles/globals.css'
+import { ThemeProvider } from '@repo/ui'
+import '@repo/ui/dist/index.css'
+import { cn } from '@repo/utils'
+import type { Metadata } from 'next'
+import { Inter, Nunito_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const nunitoSans = Nunito_Sans({
+	subsets: ['latin'],
+	display: 'swap',
+	weight: ['400', '600', '700'],
+	variable: '--font-nunito-sans',
+})
 
 export const metadata: Metadata = {
 	title: 'Your app',
@@ -18,10 +25,10 @@ export default function RootLayout({
 }): JSX.Element {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={cn(inter.variable, nunitoSans.variable)}>
 				<ThemeProvider
-					attribute='class'
-					defaultTheme='system'
+					attribute="class"
+					defaultTheme="system"
 					enableSystem
 				>
 					{children}
