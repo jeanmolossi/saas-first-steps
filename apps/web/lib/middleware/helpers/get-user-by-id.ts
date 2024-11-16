@@ -4,17 +4,22 @@ import { createClient } from '@/lib/supabase/server'
 type UserProvided = {
 	id: string
 	name?: string
-	full_name?: string
 	email?: string
-	email_confirmed_at?: string
 	confirmed_at?: string
-	avatar_url?: string
+	user_metadata: {
+		avatar_url?: string
+		full_name?: string
+		email_confirmed_at?: string
+		picture?: string
+	}
 }
 
 export async function getUserByID<T extends UserProvided>(
 	userProvided: T | null,
 ): Promise<User | undefined> {
-	if (!userProvided) return
+	if (!userProvided) {
+		return
+	}
 
 	const supabase = await createClient()
 	const { error, data } = await supabase
@@ -31,14 +36,27 @@ export async function getUserByID<T extends UserProvided>(
 	let user = data?.at(0)
 
 	if (!user) {
+		const {
+			name,
+			email,
+			confirmed_at: confirmedAt,
+			user_metadata: {
+				email_confirmed_at: emailConfirmedAt,
+				full_name: fullName,
+				avatar_url: avatarUrl,
+				picture,
+			},
+		} = userProvided
+
 		let emailVerified: Date | null = null
-		if (userProvided.email_confirmed_at) {
-			emailVerified = new Date(userProvided.email_confirmed_at)
+		if (emailConfirmedAt) {
+			emailVerified = new Date(emailConfirmedAt)
 		}
-		if (!emailVerified && userProvided.confirmed_at) {
-			emailVerified = new Date(userProvided.confirmed_at)
+
+		if (!emailVerified && confirmedAt) {
+			emailVerified = new Date(confirmedAt)
 		}
-		if (!userProvided.email) {
+		if (!email) {
 			return
 		}
 
@@ -46,13 +64,10 @@ export async function getUserByID<T extends UserProvided>(
 			.from('users')
 			.insert({
 				id: userProvided.id,
-				name:
-					userProvided.name ||
-					userProvided.full_name ||
-					'Desconhecido',
-				email: userProvided.email,
+				name: name || fullName || 'Desconhecido',
+				email,
 				emailVerified,
-				image: userProvided.avatar_url,
+				image: avatarUrl || picture,
 			})
 			.select()
 

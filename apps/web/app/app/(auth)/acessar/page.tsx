@@ -1,10 +1,11 @@
 import { Button } from '@repo/ui'
 import Link from 'next/link'
 import LoginForm from './form'
+import { AuthLayout } from '@/components/layout/auth-layout'
 
 export default function Page() {
 	return (
-		<div>
+		<AuthLayout>
 			<LoginForm />
 
 			<p>
@@ -13,6 +14,6 @@ export default function Page() {
 					<Link href="/cadastro">Cadastre-se</Link>
 				</Button>
 			</p>
-		</div>
+		</AuthLayout>
 	)
 }

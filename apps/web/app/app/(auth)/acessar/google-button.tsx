@@ -8,27 +8,26 @@ import { APP_DOMAIN } from '@repo/utils'
 export default function GoogleButton() {
 	const handleLogin = async () => {
 		const supabase = createClient()
-		const { data } = await supabase.auth.signInWithOAuth({
+		await supabase.auth.signInWithOAuth({
 			provider: 'google',
 			options: {
 				redirectTo: `${APP_DOMAIN}/auth/callback`,
 			},
 		})
-
-		console.log('DATA URL', data.url, APP_DOMAIN)
 	}
 
 	return (
-		<form>
+		<div>
 			<Button
 				type="button"
 				variant="outline"
-				size="icon"
-				className="p-1"
+				className="p-4 text-md"
+				size="lg"
 				onClick={handleLogin}
 			>
-				<GoogleIcon />
+				<GoogleIcon width={24} />
+				Acessar com Google
 			</Button>
-		</form>
+		</div>
 	)
 }

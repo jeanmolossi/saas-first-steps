@@ -5,11 +5,9 @@ import { NextRequest, NextResponse } from 'next/server'
 const X_FORWARDED_HOST = 'x-forwarded-host'
 
 export async function GET(request: NextRequest) {
-	const { searchParams, protocol, origin } = new URL(request.url)
+	const { searchParams, origin } = new URL(request.url)
 	const code = searchParams.get('code')
 	const redirTo = searchParams.get('redir_to') || '/' // next é a url de redirect (quando existe usamos ela)
-
-	console.log('RECEIVED REQUEST', code, redirTo, origin)
 
 	if (!code) {
 		return NextResponse.redirect(`${origin}/auth/auth-code-error`)
