@@ -2,6 +2,8 @@ import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } fro
 import { ArrowRightCircle } from "lucide-react"
 import Image from "next/image"
 
+import type { JSX } from "react";
+
 const LINKS = [
 	{
 		title: 'Docs',
