@@ -1,11 +1,17 @@
-import { API_HOSTNAMES, APP_HOSTNAMES } from '@repo/utils'
+import { API_HOSTNAMES, APP_HOSTNAMES, LP_HOSTNAMES } from '@repo/utils'
 import { NextResponse, type NextRequest } from 'next/server'
 import ApiMiddleware from '@/lib/middleware/api'
 import AppMiddleware from '@/lib/middleware/app'
 import { parse } from '@/lib/middleware/helpers'
+import LpMiddleware from './lib/middleware/lp'
 
 export async function middleware(request: NextRequest) {
 	const { domain } = parse(request)
+
+	// para landing pages
+	if (LP_HOSTNAMES.has(domain)) {
+		return LpMiddleware(request)
+	}
 
 	// para o app
 	if (APP_HOSTNAMES.has(domain)) {
