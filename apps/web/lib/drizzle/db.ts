@@ -1,15 +1,14 @@
+import serverAppConfig from '@/config/server-app-config'
 import * as usersSchema from './user.schema'
 
-import * as dotenv from 'dotenv'
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
 
-dotenv.config({ path: '.env.development.local' })
-
-const connectionString = process.env.DATABASE_URL!
+const connectionString = serverAppConfig.DATABASE_URL
 
 if (!connectionString) {
 	console.log('🔴 missing database url')
+	process.exit(1)
 }
 
 const client = postgres(connectionString, { prepare: false, idle_timeout: 5 })
@@ -34,4 +33,4 @@ async function applySchema() {
 	}
 }
 
-// applySchema()
+applySchema()

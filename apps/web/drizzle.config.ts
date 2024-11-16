@@ -1,19 +1,18 @@
-import * as dotenv from 'dotenv'
-import { Config } from 'drizzle-kit'
+import { Config, defineConfig } from 'drizzle-kit'
+import serverAppConfig from './config/server-app-config'
 
-dotenv.config({ path: '.env.development.local' })
-
-const connectionString = process.env.DATABASE_URL!
+const connectionString = serverAppConfig.DATABASE_URL
 
 if (!connectionString) {
 	console.log('🔴 Missing DATABASE_URL')
+	process.exit(1)
 }
 
-export default {
+export default defineConfig({
 	schema: ['./lib/drizzle/user.schema.ts'],
 	out: './migrations',
 	dialect: 'postgresql',
 	dbCredentials: {
 		url: connectionString,
 	},
-} satisfies Config
+}) satisfies Config

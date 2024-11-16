@@ -1,13 +1,20 @@
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui"
-import { ArrowRightCircle } from "lucide-react"
-import Image from "next/image"
+import {
+	Button,
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@repo/ui'
+import { ArrowRightCircle } from 'lucide-react'
+import Image from 'next/image'
+import type { JSX } from 'react'
 
 const LINKS = [
 	{
 		title: 'Docs',
 		href: 'http://localhost:3001',
-		description:
-			'Find in-depth information about App features and API.',
+		description: 'Find in-depth information about App features and API.',
 	},
 	{
 		title: 'Learn',
@@ -30,9 +37,18 @@ const LINKS = [
 
 export default function Page(): JSX.Element {
 	return (
-		<main className={'grid grid-cols-2 gap-4 place-content-center min-h-screen p-8'}>
+		<main
+			className={
+				'grid grid-cols-2 gap-4 place-content-center min-h-screen p-8'
+			}
+		>
 			<div className="col-span-2">
-				<Image src="/logo.svg" width={160} height={32} alt="Your app logo" />
+				<Image
+					src="/logo.svg"
+					width={160}
+					height={32}
+					alt="Your app logo"
+				/>
 			</div>
 
 			{LINKS.map((link, i) => (
@@ -44,7 +60,11 @@ export default function Page(): JSX.Element {
 
 					<CardContent>
 						<Button asChild>
-							<a href={link.href} target="_blank" rel="noreferer noopener">
+							<a
+								href={link.href}
+								target="_blank"
+								rel="noreferer noopener"
+							>
 								Go now <ArrowRightCircle />
 							</a>
 						</Button>

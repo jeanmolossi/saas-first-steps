@@ -1,4 +1,5 @@
 import { Wordmark } from '@repo/ui'
+import clientAppConfig from '@/config/client-app-config'
 import { NextButton } from '../next-button'
 
 export default function Welcome() {
@@ -20,16 +21,17 @@ export default function Welcome() {
 
 				<Wordmark className="relative h-16" />
 			</div>
+
 			<h1 className="animate-slide-up-fade mt-10 text-2xl font-medium [--offset:10px] [animation-delay:250ms] [animation-duration:1s] [animation-fill-mode:both]">
-				Boas vindas ao NexoChat
+				Boas vindas ao {clientAppConfig.APP_NAME}
 			</h1>
+
 			<p className="animate-slide-up-fade mt-2 text-gray-500 [--offset:10px] [animation-delay:500ms] [animation-duration:1s] [animation-fill-mode:both]">
-				Centralize a comunicação com seus clientes em múltiplos canais.
-				Automatize respostas, crie chatbots personalizados e analise
-				métricas para otimizar seu atendimento ao cliente.
+				Uma descricao de boas vindas
 			</p>
+
 			<div className="animate-slide-up-fade mt-10 w-full [--offset:10px] [animation-delay:750ms] [animation-duration:1s] [animation-fill-mode:both]">
-				<NextButton step="workspace" />
+				<NextButton step="finalizado" />
 			</div>
 		</div>
 	)

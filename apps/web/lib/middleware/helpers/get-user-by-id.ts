@@ -16,7 +16,7 @@ export async function getUserByID<T extends UserProvided>(
 ): Promise<User | undefined> {
 	if (!userProvided) return
 
-	const supabase = createClient()
+	const supabase = await createClient()
 	const { error, data } = await supabase
 		.from('users')
 		.select('*')

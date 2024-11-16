@@ -3,6 +3,7 @@ import { ThemeProvider } from '@repo/ui'
 import '@repo/ui/dist/index.css'
 import { cn } from '@repo/utils'
 import type { Metadata } from 'next'
+import type { JSX } from 'react'
 import { Inter, Nunito_Sans } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })

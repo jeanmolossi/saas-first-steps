@@ -1,3 +1,4 @@
+import serverAppConfig from '@/config/server-app-config'
 import { createClient } from '@/lib/supabase/server'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -14,13 +15,13 @@ export async function GET(request: NextRequest) {
 		return NextResponse.redirect(`${origin}/auth/auth-code-error`)
 	}
 
-	const supabase = createClient()
+	const supabase = await createClient()
 	const { error } = await supabase.auth.exchangeCodeForSession(code)
 	if (error) {
 		return NextResponse.redirect(`${origin}/auth/auth-code-error`)
 	}
 
-	const isLocal = process.env.NODE_ENV === 'development'
+	const isLocal = serverAppConfig.NODE_ENV === 'development'
 
 	if (isLocal) {
 		return NextResponse.redirect(`${origin}${redirTo}`) // local podemos ignorar qualquer validação de host

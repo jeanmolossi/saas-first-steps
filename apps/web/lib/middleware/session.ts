@@ -1,8 +1,8 @@
+import serverAppConfig from '@/config/server-app-config'
 import { createServerClient } from '@supabase/ssr'
 import { NextRequest, NextResponse } from 'next/server'
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const { ANON_KEY, SUPABASE_URL } = serverAppConfig
 
 const LOGIN_PAGE = '/acessar'
 const AUTH_BASE_PATH = '/dashboard'

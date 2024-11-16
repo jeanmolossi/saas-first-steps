@@ -2,7 +2,7 @@
 
 import { OnboardingStep } from '@/lib/onboarding/types'
 import { Button, ButtonProps } from '@repo/ui'
-import { LoaderCircle } from 'lucide-react'
+// import { LoaderCircle } from 'lucide-react'
 
 export function NextButton({
 	step,
@@ -11,7 +11,7 @@ export function NextButton({
 }: { step: OnboardingStep } & ButtonProps) {
 	return (
 		<Button {...props}>
-			<LoaderCircle className="animate-spin" />
+			{/* <LoaderCircle className="animate-spin" /> */}
 			{children}
 		</Button>
 	)

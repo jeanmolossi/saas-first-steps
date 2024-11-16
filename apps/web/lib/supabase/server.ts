@@ -1,11 +1,11 @@
+import serverAppConfig from '@/config/server-app-config'
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
-const URL = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+export async function createClient() {
+	const cookieStore = await cookies()
 
-export function createClient() {
-	const cookieStore = cookies()
+	const { SUPABASE_URL: URL, ANON_KEY } = serverAppConfig
 
 	return createServerClient(URL, ANON_KEY, {
 		cookies: {
